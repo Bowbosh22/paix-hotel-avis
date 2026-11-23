@@ -1,0 +1,17 @@
+# Garde le projet Supabase gratuit éveillé (il se met en veille après 7 jours sans activité).
+name: keepalive
+on:
+  schedule:
+    - cron: '17 6 * * *'
+  workflow_dispatch:
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Ping de la base
+        run: |
+          URL=$(grep -oP "SUPABASE_URL:\s*'\K[^']+" config.js || true)
+          KEY=$(grep -oP "SUPABASE_ANON_KEY:\s*'\K[^']+" config.js || true)
+          if [ -z "$URL" ] || [ -z "$KEY" ]; then echo "config.js vide : rien à faire"; exit 0; fi
+          curl -fsS -X POST "$URL/rest/v1/rpc/ping" -H "apikey: $KEY" -H "Content-Type: application/json" -d '{}'
