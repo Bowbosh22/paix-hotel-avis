@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Statistiques — Hôtel de la Paix</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="admin.css">
+<script src="config.js"></script>
+<script src="store.js"></script>
+<script>if(!Auth.isIn())location.replace("admin.html?next=stats.html");</script>
+</head>
+<body>
+<div class="app adm">
+  <div id="hdr" data-active="stats"></div>
+  <h1 class="ttl">Statistiques</h1>
+
+  <div class="seg" id="per" role="tablist" aria-label="Période">
+    <button type="button" data-p="day">Jour</button><button type="button" data-p="week">Semaine</button><button type="button" data-p="month" aria-pressed="true">Mois</button><button type="button" data-p="year">Année</button><button type="button" data-p="all">Tout</button>
+  </div>
+  <div class="nav2" id="nav"><button type="button" id="pv" aria-label="Période précédente">‹</button>
+    <div class="curp"><span id="plab"></span><input type="date" id="pick" aria-label="Choisir une date"><select id="pickY" aria-label="Choisir une année" hidden></select></div>
+    <button type="button" id="nx" aria-label="Période suivante">›</button></div>
+  <button type="button" class="lnk" id="todayB" hidden>Revenir à aujourd'hui</button>
+  <div class="flt">
+    <select id="fs" aria-label="Service"></select>
+    <select id="fn" aria-label="Note"><option value="">Toutes les notes</option><option value="5">5 étoiles</option><option value="4">4 étoiles</option><option value="3">3 étoiles</option><option value="2">2 étoiles</option><option value="1">1 étoile</option></select>
+    <select id="fl" class="wide" aria-label="Chambre ou QR code"></select>
+  </div>
+
+  <div id="none" class="card empty" hidden><p><b>Aucun avis pour ces filtres.</b></p><p class="sub">Changez la période ou retirez un filtre.</p></div>
+
+  <div id="st">
+    <div class="kpis">
+      <div class="kpi"><div class="lab">Avis</div><div class="val" id="k1">–</div><div class="mut" id="k1d"></div></div>
+      <div class="kpi"><div class="lab">Note moyenne</div><div class="val" id="k2">–</div><div class="mut" id="k2d"></div></div>
+    </div>
+
+    <section class="card">
+      <h2>Évolution de la note moyenne</h2>
+      <div id="ch1" class="chart"></div>
+      <div class="ro" id="ro1"></div>
+    </section>
+    <section class="card">
+      <h2>Nombre d'avis</h2>
+      <div id="ch2" class="chart"></div>
+    </section>
+    <section class="card">
+      <h2>Répartition des étoiles</h2>
+      <div id="dist"></div>
+    </section>
+    <section class="card">
+      <h2>Comparaison entre services</h2>
+      <div id="cmp"></div>
+    </section>
+  </div>
+</div>
+<script src="charts.js"></script>
+<script src="menu.js"></script>
+<script src="stats.js"></script>
+</body>
+</html>

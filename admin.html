@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Espace direction — Hôtel de la Paix</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<div class="app adm">
+
+<section id="login" hidden>
+  <div class="top"><div class="wm"><b>LA PAIX</b><i>HÔTEL</i></div></div>
+  <div class="card">
+    <h1 style="font-size:1.35rem">Espace direction</h1>
+    <p class="sub">Connectez-vous pour consulter les avis de vos clients.</p>
+    <form id="lf" autocomplete="off" novalidate>
+      <input type="email" id="em" placeholder="Adresse e-mail" aria-label="Adresse e-mail" autocomplete="username" hidden style="margin-top:1rem;width:100%;font:inherit;padding:.85rem;border:1.5px solid var(--soft);border-radius:.6rem">
+      <input type="password" id="pw" placeholder="Mot de passe" aria-label="Mot de passe" style="margin-top:1rem;width:100%;font:inherit;padding:.85rem;border:1.5px solid var(--soft);border-radius:.6rem">
+      <div class="err" id="lerr" role="alert"></div>
+      <button class="send" type="submit" style="margin-top:.4rem">Se connecter</button>
+    </form>
+  </div>
+</section>
+
+<section id="dash" hidden>
+  <div id="hdr" data-active="dash"></div>
+  <a href="reservations.html" class="banner bn2" id="bannerR" hidden></a>
+  <a href="#reclC" class="banner" id="banner" hidden></a>
+  <h1 class="ttl">Tableau de bord</h1>
+  <p class="sub" id="upd"></p>
+
+  <div id="empty" class="card empty" hidden>
+    <p><b>Aucun avis pour le moment.</b></p>
+    <p class="sub">Les avis laissés par vos clients apparaîtront ici.</p>
+    <button type="button" class="demo" id="seed">Charger des avis d'exemple (démo)</button>
+  </div>
+
+  <div id="main" hidden>
+    <div class="kpis">
+      <div class="kpi big"><div class="lab">Note moyenne</div><div class="val" id="avg">–</div><div class="st" id="avgst"></div></div>
+      <div class="kpi"><div class="lab">Avis reçus</div><div class="val" id="cnt">–</div></div>
+      <div class="kpi"><div class="lab">Clients satisfaits</div><div class="val" id="sat">–</div><div class="mut">4 et 5 étoiles</div></div>
+    </div>
+
+    <section class="card" id="reclC">
+      <h2>Réclamations</h2>
+      <div class="cfg"><label for="seuil">Alerte pour les notes de</label>
+        <select id="seuil"><option value="1">1 étoile</option><option value="2" selected>1 à 2 étoiles</option><option value="3">1 à 3 étoiles</option></select></div>
+      <div class="tabs" id="tabs" role="tablist"></div>
+      <div id="recl"></div>
+    </section>
+
+    <section class="card">
+      <h2>Satisfaction par service</h2>
+      <div id="bysvc"></div>
+    </section>
+
+    <section class="card">
+      <h2>Avis récents</h2>
+      <div id="recent"></div>
+      <button type="button" class="more" id="more" hidden>Voir plus d'avis</button>
+    </section>
+
+    <div class="foot2"><button type="button" class="demo" id="clr">Effacer les avis (démo)</button></div>
+  </div>
+</section>
+
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+<script src="config.js"></script>
+<script src="store.js"></script>
+<script src="menu.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

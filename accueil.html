@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Accueil — Hôtel de la Paix</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="admin.css">
+<script src="config.js"></script>
+<script src="store.js"></script>
+<script>if(!Auth.isIn())location.replace("admin.html?next=accueil.html");</script>
+</head>
+<body>
+<div class="app adm">
+  <div class="hdr noprint"><div class="top"><div class="wm"><b>LA PAIX</b><i>HÔTEL</i></div><button type="button" class="pill" id="out2">Quitter</button></div></div>
+  <h1 class="ttl">Bienvenue</h1>
+  <p class="sub">Choisissez la plateforme à ouvrir.</p>
+  <div class="hub">
+    <a class="hubc" href="admin.html" id="cAvis">
+      <span class="hi" aria-hidden="true">★</span>
+      <span class="ht">Avis clients</span>
+      <span class="hd">Notes, commentaires et réclamations de vos clients.</span>
+      <span class="hs" id="sAvis">&nbsp;</span>
+      <span class="hg">Ouvrir →</span>
+    </a>
+    <a class="hubc" href="reservations.html" id="cResa">
+      <span class="hi" aria-hidden="true">🛎</span>
+      <span class="ht">Réservations</span>
+      <span class="hd">Demandes envoyées depuis le site : valider, refuser, confirmer.</span>
+      <span class="hs" id="sResa">&nbsp;</span>
+      <span class="hg">Ouvrir →</span>
+    </a>
+  </div>
+</div>
+<script src="accueil.js"></script>
+</body>
+</html>

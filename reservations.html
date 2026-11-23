@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Réservations — Hôtel de la Paix</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="admin.css">
+<script src="config.js"></script>
+<script src="store.js"></script>
+<script>if(!Auth.isIn())location.replace("admin.html?next=reservations.html");</script>
+</head>
+<body>
+<div class="app adm">
+  <div id="hdr" data-active="resa"></div>
+  <h1 class="ttl">Réservations</h1>
+  <p class="sub">Demandes envoyées depuis le site. Vérifiez vos disponibilités, validez, puis prévenez le client.</p>
+  <input type="search" id="q" class="srch" placeholder="Rechercher : numéro (RES-…), nom ou téléphone" aria-label="Rechercher une réservation" autocomplete="off">
+  <div class="tabs" id="tabs"></div>
+  <p class="sub" id="qinfo" hidden></p>
+  <div id="list"></div>
+  <div id="none" class="card empty" hidden><p><b>Aucune demande ici.</b></p><p class="sub">Les demandes de réservation du site apparaîtront dans cette page.</p></div>
+</div>
+<div class="toast" id="toast" hidden></div>
+<script src="menu.js"></script>
+<script src="reservations.js"></script>
+</body>
+</html>
