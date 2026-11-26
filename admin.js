@@ -43,9 +43,9 @@ function seed(){
   Store.save(out);
   function ds(n){var d=new Date(now+n*864e5);return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2)}
   var RS=[['Awa Ndinga','+242 06 412 31 08','awa.ndinga@exemple.com','email','standard',9,12,2,0.2,'Nouvelle',''],
-   ['Jean Mavoungou','+242 05 521 77 90','','whatsapp','familiale',15,18,1,0.5,'Nouvelle','Arrivée tardive vers 22 h'],
-   ['Marie Okemba','+242 06 788 02 14','marie.okemba@exemple.com','whatsapp','suite-nuptiale',21,24,2,1.2,'Nouvelle','Lit supplémentaire souhaité'],
-   ['Paul Itoua','+242 05 604 19 33','','whatsapp','suite',6,8,2,3,'Confirmée',''],
+   ['Jean Mavoungou','+242 05 521 77 90','','whatsapp','twin',15,18,1,0.5,'Nouvelle','Arrivée tardive vers 22 h'],
+   ['Marie Okemba','+242 06 788 02 14','marie.okemba@exemple.com','whatsapp','f3',21,24,2,1.2,'Nouvelle','Lit supplémentaire souhaité'],
+   ['Paul Itoua','+242 05 604 19 33','','whatsapp','excellence',6,8,2,3,'Confirmée',''],
    ['Grâce Mabiala','+242 06 230 45 61','grace.m@exemple.com','email','standard',4,5,1,4,'Refusée','']];
   
   Resa.save(RS.map(function(x,i){var n=x[6]-x[5];return {id:'RES-D'+(100+i),date:new Date(now-x[8]*864e5).toISOString(),arrivee:ds(x[5]),depart:ds(x[6]),personnes:x[7]+0,chambre:x[4],total:null,

@@ -8,7 +8,7 @@ create table if not exists public.reservations (
   arrivee       date not null,
   depart        date not null,
   personnes     int  not null check (personnes between 1 and 10),
-  chambre       text not null check (chambre in ('standard','familiale','suite','suite-nuptiale')),
+  chambre       text not null check (chambre in ('standard','excellence','twin','f3')),
   total_estime  int  check (total_estime is null or total_estime between 0 and 100000000),
   nom           text not null check (char_length(nom) between 1 and 120),
   tel           text not null check (char_length(tel) between 3 and 30),

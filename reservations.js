@@ -3,7 +3,7 @@
 var $=function(i){return document.getElementById(i)};
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 var STAT=['Nouvelle','Confirmée','Refusée','Annulée'];
-var CH={'standard':'Standard','familiale':'Familiale','suite':'Suite','suite-nuptiale':'Suite nuptiale'};
+var CH={'standard':'Standard','excellence':'Excellence','twin':'Twin','f3':'Appartement F3'};
 var MOIS=['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'];
 var tab='Nouvelle',known={};
 function two(n){return n<10?'0'+n:''+n}
