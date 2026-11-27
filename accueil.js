@@ -10,4 +10,8 @@ Promise.all([Store.ready(),Resa.ready()]).then(function(){
   badge($('sAvis'),recl,recl?('⚠ '+recl+(recl>1?' réclamations à traiter':' réclamation à traiter')):(A.length?A.length+(A.length>1?' avis reçus':' avis reçu'):'Aucun avis pour le moment'));
   badge($('sResa'),nr,nr?('🛎 '+nr+(nr>1?' nouvelles demandes':' nouvelle demande')):'Aucune nouvelle demande');
 },function(){});
+var C=window.PAIX_CFG||{};
+if(C.SUPABASE_URL)Auth.token().then(function(t){return fetch(C.SUPABASE_URL+'/rest/v1/abonnes?select=id',{headers:{apikey:C.SUPABASE_ANON_KEY,Authorization:'Bearer '+t,Prefer:'count=exact',Range:'0-0'}})})
+ .then(function(r){var m=(r.headers.get('content-range')||'').match(/\/(\d+)$/);if(!r.ok||!m)throw 0;var n=+m[1];badge($('sNews'),0,n?(n+(n>1?' abonnés':' abonné')):'Aucun abonné pour le moment')}).then(null,function(){badge($('sNews'),0,'Voir la liste')});
+else badge($('sNews'),0,'Voir la liste');
 })();
